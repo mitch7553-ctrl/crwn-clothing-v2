@@ -2,6 +2,7 @@ import { exp } from "firebase/firestore/pipelines"
 import './form-input.styles.scss';
 
 const FormInput = ({label, ...otherProps}) => {
+    console.log(otherProps.value)
     return (
         <div className="group">
             <input className="form-input" {...otherProps} />
