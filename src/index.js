@@ -11,7 +11,7 @@ import { CartProvider } from './context/cart.context';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
     <UserProvider>
     <ProductsProvider>
     <CartProvider>
