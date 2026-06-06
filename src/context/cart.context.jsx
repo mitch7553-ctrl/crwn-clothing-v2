@@ -22,6 +22,10 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
     (cartItem) => cartItem.id === cartItemToRemove.id
   );
 
+  if (!existingCartItem) {
+    return cartItems;
+  }
+
   // check if quantity is equal to 1, if it is remove that item from the cart
   if (existingCartItem.quantity === 1) {
     return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id);
@@ -72,22 +76,28 @@ export const CartProvider = ({ children }) => {
   }, [cartItems]);
 
   const addItemToCart = (productToAdd) => {
-    setCartItems(addCartItem(cartItems, productToAdd));
+    setCartItems((currentCartItems) =>
+      addCartItem(currentCartItems, productToAdd)
+    );
   };
 
-  const removeItemToCart = (cartItemToRemove) => {
-    setCartItems(removeCartItem(cartItems, cartItemToRemove));
+  const removeItemFromCart = (cartItemToRemove) => {
+    setCartItems((currentCartItems) =>
+      removeCartItem(currentCartItems, cartItemToRemove)
+    );
   };
 
   const clearItemFromCart = (cartItemToClear) => {
-    setCartItems(clearCartItem(cartItems, cartItemToClear));
+    setCartItems((currentCartItems) =>
+      clearCartItem(currentCartItems, cartItemToClear)
+    );
   };
 
   const value = {
     isCartOpen,
     setIsCartOpen,
     addItemToCart,
-    removeItemToCart,
+    removeItemFromCart,
     clearItemFromCart,
     cartItems,
     cartCount,
