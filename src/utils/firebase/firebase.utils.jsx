@@ -18,16 +18,22 @@ import {
   writeBatch,
 } from 'firebase/firestore';
 
+// Import the functions you need from the SDKs you need
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyDDU4V-_QV3M8GyhC9SVieRTDM4dbiT0Yk',
-  authDomain: 'crwn-clothing-db-98d4d.firebaseapp.com',
-  projectId: 'crwn-clothing-db-98d4d',
-  storageBucket: 'crwn-clothing-db-98d4d.appspot.com',
-  messagingSenderId: '626766232035',
-  appId: '1:626766232035:web:506621582dab103a4d08d6',
+  apiKey: "AIzaSyCjxnQLkflQPd6hsHRb9Jxdi-BatGfY244",
+  authDomain: "crwn-clothing-db-678eb.firebaseapp.com",
+  projectId: "crwn-clothing-db-678eb",
+  storageBucket: "crwn-clothing-db-678eb.firebasestorage.app",
+  messagingSenderId: "86203166444",
+  appId: "1:86203166444:web:0a5098654a81aa87417fc9"
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -41,7 +47,7 @@ export const signInWithGooglePopup = () =>
 export const signInWithGoogleRedirect = () =>
   signInWithRedirect(auth, googleProvider);
 
-export const db = getFirestore();
+export const db = getFirestore(app);
 
 export const addCollectionAndDocuments = async (
   collectionKey,
