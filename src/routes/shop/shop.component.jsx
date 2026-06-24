@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext,Fragment } from 'react';
 
 import ProductCard from '../../components/product-card/product-card.component';
 
@@ -10,11 +10,21 @@ const Shop = () => {
   const { products } = useContext(ProductsContext);
 
   return (
-    <div className='products-container'>
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div>
+    <Fragment>
+      {Object.keys(products).map((title) => {
+        const items = products[title];
+        return (
+          <Fragment key={title}>
+            <h2>{title.toUpperCase()}</h2>
+            <div className='products-container'>
+              {items.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          </Fragment>
+        );
+      })}
+    </Fragment>
   );
 };
 
