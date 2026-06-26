@@ -1,3 +1,6 @@
+imort styled from 'styled-components';
+
+
 .navigation {
   height: 70px;
   width: 100%;
