@@ -7,10 +7,13 @@ import { UserProvider } from './context/user.context';
 import reportWebVitals from './reportWebVitals';
 import {CategoriesProvider} from './context/categories.context';
 import { CartProvider } from './context/cart.context';
+import  {Provider} from 'react-redux';
+import { store } from './store/store';
 
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store}>
     <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
     <UserProvider>
     <CategoriesProvider>
@@ -20,6 +23,7 @@ ReactDOM.render(
     </CategoriesProvider>
     </UserProvider>
   </BrowserRouter>
+  </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
