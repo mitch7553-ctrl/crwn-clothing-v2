@@ -15,8 +15,8 @@ import {setCurrentUser} from './store/user/user.action';
 
 const App = () => {
   const dispatch = useDispatch();
-  return (
-     useEffect(() => {
+
+  useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
       if (user) {
         createUserDocumentFromAuth(user);
@@ -25,8 +25,9 @@ const App = () => {
     });
 
     return unsubscribe;
-  }, []);
+  }, [dispatch]);
 
+  return (
     <Routes>
       <Route path='/' element={<Navigation />}>
         <Route index element={<Home />} />
