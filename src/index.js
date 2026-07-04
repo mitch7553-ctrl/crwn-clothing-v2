@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import {BrowserRouter} from 'react-router-dom'
-import { UserProvider } from './context/user.context';
+// import { UserProvider } from './context/user.context';
 import reportWebVitals from './reportWebVitals';
 import {CategoriesProvider} from './context/categories.context';
 import { CartProvider } from './context/cart.context';
@@ -15,13 +15,13 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
     <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-    <UserProvider>
+    {/* <UserProvider> */}
     <CategoriesProvider>
     <CartProvider>
     <App />
     </CartProvider>
     </CategoriesProvider>
-    </UserProvider>
+    {/* </UserProvider> */}
   </BrowserRouter>
   </Provider>
   </React.StrictMode>,
