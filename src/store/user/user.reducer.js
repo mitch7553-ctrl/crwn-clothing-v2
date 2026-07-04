@@ -7,15 +7,14 @@ import {
 
 import { createAction } from '../utils/reducer/reducer.utils';
 
+import {USER_ACTION_TYPES} from './user.types'
+
 export const UserContext = createContext({
   setCurrentUser: () => null,
   currentUser: null,
 });
 
 
-export const USER_ACTION_TYPES = {
-  SET_CURRENT_USER: 'SET_CURRENT_USER'
-}
 
 export const userReducer = (state= INITIAL_STATE, action) => {
   console.log('dispatched');

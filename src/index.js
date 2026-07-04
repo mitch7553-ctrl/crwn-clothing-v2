@@ -15,13 +15,13 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
     <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-    <UserProvider>
+    {/* <UserProvider> */}
     <CategoriesProvider>
     <CartProvider>
     <App />
     </CartProvider>
     </CategoriesProvider>
-    </UserProvider>
+    {/* </UserProvider> */}
   </BrowserRouter>
   </Provider>
   </React.StrictMode>,
