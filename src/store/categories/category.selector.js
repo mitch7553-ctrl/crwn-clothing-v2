@@ -7,12 +7,7 @@ export const selectCategories = createSelector(
     (categoriesSlice)  => categoriesSlice.categories
 );
 
-
-
-
 export const selectCategoriesMap = createSelector(
     [selectCategoryReducer],
     (categoriesSlice) => categoriesSlice.categoriesMap
 );
-
-
