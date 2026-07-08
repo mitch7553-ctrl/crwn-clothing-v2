@@ -53,6 +53,7 @@ const SignInForm = () => {
           label='Email'
           type='email'
           required
+          autoComplete='email'
           onChange={handleChange}
           name='email'
           value={email}
@@ -62,6 +63,7 @@ const SignInForm = () => {
           label='Password'
           type='password'
           required
+          autoComplete='current-password'
           onChange={handleChange}
           name='password'
           value={password}

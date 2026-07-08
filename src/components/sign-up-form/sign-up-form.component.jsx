@@ -74,6 +74,7 @@ const SignUpForm = () => {
           label='Email'
           type='email'
           required
+          autoComplete='email'
           onChange={handleChange}
           name='email'
           value={email}
@@ -83,6 +84,7 @@ const SignUpForm = () => {
           label='Password'
           type='password'
           required
+          autoComplete='new-password'
           onChange={handleChange}
           name='password'
           value={password}
@@ -92,6 +94,7 @@ const SignUpForm = () => {
           label='Confirm Password'
           type='password'
           required
+          autoComplete='new-password'
           onChange={handleChange}
           name='confirmPassword'
           value={confirmPassword}

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.scss';
 import App from './App';
 import {BrowserRouter} from 'react-router-dom'
@@ -10,7 +10,8 @@ import  {Provider} from 'react-redux';
 import { store } from './store/store';
 
 
-ReactDOM.render(
+const root = createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
     <Provider store={store}>
     <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
@@ -21,8 +22,7 @@ ReactDOM.render(
     {/* </UserProvider> */}
   </BrowserRouter>
   </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
