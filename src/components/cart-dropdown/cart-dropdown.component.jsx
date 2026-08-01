@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../context/cart.context';
 
 import Button from '../button/button.component';
-import {CategoriesContext} from '../../context/categories.context';
 
 import CartItem from '../cart-item/cart-item.component';
 
@@ -12,8 +11,6 @@ import {CartDropdownContainer, EmptyMessage, CartItems} from './cart-dropdown.st
 
 const CartDropdown = () => {
   const { cartItems, setIsCartOpen } = useContext(CartContext);
-  const {categoriesMap} = useContext(CategoriesContext);
-  console.log(categoriesMap);
   const navigate = useNavigate();
 
   const goToCheckoutHandler = () => {
