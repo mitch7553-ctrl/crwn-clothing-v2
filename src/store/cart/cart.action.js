@@ -18,17 +18,16 @@ const addCartItem = (cartItems, productToAdd) => {
 };
 
 const removeCartItem = (cartItems, cartItemToRemove) => {
-  // find the cart item to remove
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === cartItemToRemove.id
   );
 
-  // check if quantity is equal to 1, if it is remove that item from the cart
+  if (!existingCartItem) return cartItems;
+
   if (existingCartItem.quantity === 1) {
     return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id);
   }
 
-  // return back cartitems with matching cart item with reduced quantity
   return cartItems.map((cartItem) =>
     cartItem.id === cartItemToRemove.id
       ? { ...cartItem, quantity: cartItem.quantity - 1 }
@@ -39,20 +38,23 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
 const clearCartItem = (cartItems, cartItemToClear) =>
   cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
 
-export const addItemToCart = (cartItems, productToAdd) => {
-  const newCartItems = addCartItem(cartItems, productToAdd);
-  return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
-};
+export const addItemToCart = (cartItems, productToAdd) =>
+  createAction(
+    CART_ACTION_TYPES.SET_CART_ITEMS,
+    addCartItem(cartItems, productToAdd)
+  );
 
-export const removeItemFromCart = (cartItems, cartItemToRemove) => {
-  const newCartItems = removeCartItem(cartItems, cartItemToRemove);
-  return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
-};
+export const removeItemFromCart = (cartItems, cartItemToRemove) =>
+  createAction(
+    CART_ACTION_TYPES.SET_CART_ITEMS,
+    removeCartItem(cartItems, cartItemToRemove)
+  );
 
-export const clearItemFromCart = (cartItems, cartItemToClear) => {
-  const newCartItems = clearCartItem(cartItems, cartItemToClear);
-  return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
-};
+export const clearItemFromCart = (cartItems, cartItemToClear) =>
+  createAction(
+    CART_ACTION_TYPES.SET_CART_ITEMS,
+    clearCartItem(cartItems, cartItemToClear)
+  );
 
-export const setIsCartOpen = (boolean) =>
-  createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, boolean);
+export const setIsCartOpen = (isCartOpen) =>
+  createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, isCartOpen);
